@@ -1,9 +1,15 @@
 # Application definition
 
-INSTALLED_APPS = [
+PROJECT_APPS = [
     'users',
     'categories',
+    'products',
+    'refs',
+    'sellers',
+    'buyers',
+]
 
+INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'rest_framework',
@@ -18,4 +24,4 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+] + [app for app in PROJECT_APPS]

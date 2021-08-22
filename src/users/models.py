@@ -7,6 +7,13 @@ from users.managers import UserManager
 
 class User(AbstractUser):
     uuid = models.UUIDField(db_index=True, unique=True, default=uuid.uuid4)
+    email = models.CharField(max_length=255)
+    phone = models.CharField(
+        null=True, blank=True, max_length=30,
+        verbose_name='Телефон',
+    )
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Создан', db_index=True)
+    updated = models.DateTimeField(auto_now=True, verbose_name='Обновлен', db_index=True)
 
     objects = UserManager()
 
